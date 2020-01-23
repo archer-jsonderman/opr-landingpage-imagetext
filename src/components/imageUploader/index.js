@@ -409,12 +409,6 @@ export default class Uploader extends React.Component {
 
     return (
 	    <>
-	    <FormLabel
-				  htmlFor="hero-headline"
-				  required={false}
-				>
-				 {this.props.title}
-				 </FormLabel>
 	      <UploadView
 	        isDraggingOver={this.state.isDraggingOver}
 	        onDrop={this.onDropFiles}
