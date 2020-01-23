@@ -1,0 +1,9 @@
+{
+  "id": "opr-landingpage-imagetext",
+  "name": "Landing: Image with Text",
+  "srcdoc": "./build/index.html",
+  "sidebar":false,
+  "fieldTypes": [
+      "Object"
+  ]
+}
