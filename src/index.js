@@ -4,7 +4,7 @@ import ReactDOM from "react-dom"
 import { init } from "contentful-ui-extensions-sdk"
 import update from 'immutability-helper';
 import Uploader from "./components/imageUploader"
-import Headline from "./components/headline"
+import Content from "./components/content"
 import "./index.scss"
 
 //load stateless components to make up the Hero Area Manager.
@@ -60,7 +60,7 @@ constructor(props){
   render = () => {
       return ( 
 	      <>
-		    <Headline 
+		    <Content 
 		    	title='Content'
 		    	onStateChange={this.handleStateChange}
 		    	{...this.state}/>

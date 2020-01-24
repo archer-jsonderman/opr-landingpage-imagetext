@@ -42209,10 +42209,7 @@ class Uploader extends _react.default.Component {
         }, _react.default.createElement(_forma36ReactComponents.Spinner, null));
       }
 
-      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_forma36ReactComponents.FormLabel, {
-        htmlFor: "hero-headline",
-        required: false
-      }, this.props.title), _react.default.createElement(_UploadView.default, {
+      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_UploadView.default, {
         isDraggingOver: this.state.isDraggingOver,
         onDrop: this.onDropFiles,
         onDragOverStart: this.onDragOverStart,
@@ -65410,12 +65407,12 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/headline/index.scss":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/content/index.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/headline/index.js":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/content/index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -65431,15 +65428,19 @@ require("@contentful/forma-36-react-components/dist/styles.css");
 
 var _forma36ReactComponents = require("@contentful/forma-36-react-components");
 
-var _reactQuill = _interopRequireDefault(require("react-quill"));
+var _reactQuill = _interopRequireWildcard(require("react-quill"));
 
 require("react-quill/dist/quill.snow.css");
 
 require("./index.scss");
 
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-class Headline extends _react.default.Component {
+class Content extends _react.default.Component {
   constructor(props) {
     super(props); //if(!this.props.value) console.log('no value - headline')
 
@@ -65450,6 +65451,8 @@ class Headline extends _react.default.Component {
     this.modules = {
       toolbar: [['bold', 'italic', {
         'script': 'super'
+      }, 'blockquote'], [{
+        'size': ['small', false]
       }], ['clean']]
     };
     this.handleEditorChange = this.handleEditorChange.bind(this);
@@ -65457,15 +65460,11 @@ class Headline extends _react.default.Component {
 
   render() {
     const {
-      headline
+      content
     } = typeof this.props !== 'undefined' && this.props || ''; //headline must be empty string and n ot undefined object or Quill has an issue
 
-    return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_forma36ReactComponents.FormLabel, {
-      htmlFor: "hero-headline",
-      required: false
-    }, this.props.title), _react.default.createElement(_reactQuill.default, {
-      name: "hero-headline",
-      id: "hero-headline",
+    return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_reactQuill.default, {
+      name: "content",
       value: this.props.content,
       placeholder: "Add your content...",
       onChange: value => this.handleEditorChange(value),
@@ -65476,8 +65475,8 @@ class Headline extends _react.default.Component {
 
 }
 
-exports.default = Headline;
-},{"react":"../node_modules/react/index.js","contentful-ui-extensions-sdk":"../node_modules/contentful-ui-extensions-sdk/dist/cf-extension-api.js","@contentful/forma-36-react-components/dist/styles.css":"../node_modules/@contentful/forma-36-react-components/dist/styles.css","@contentful/forma-36-react-components":"../node_modules/@contentful/forma-36-react-components/dist/esm/index.js","react-quill":"../node_modules/react-quill/lib/index.js","react-quill/dist/quill.snow.css":"../node_modules/react-quill/dist/quill.snow.css","./index.scss":"components/headline/index.scss"}],"index.scss":[function(require,module,exports) {
+exports.default = Content;
+},{"react":"../node_modules/react/index.js","contentful-ui-extensions-sdk":"../node_modules/contentful-ui-extensions-sdk/dist/cf-extension-api.js","@contentful/forma-36-react-components/dist/styles.css":"../node_modules/@contentful/forma-36-react-components/dist/styles.css","@contentful/forma-36-react-components":"../node_modules/@contentful/forma-36-react-components/dist/esm/index.js","react-quill":"../node_modules/react-quill/lib/index.js","react-quill/dist/quill.snow.css":"../node_modules/react-quill/dist/quill.snow.css","./index.scss":"components/content/index.scss"}],"index.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -65497,7 +65496,7 @@ var _immutabilityHelper = _interopRequireDefault(require("immutability-helper"))
 
 var _imageUploader = _interopRequireDefault(require("./components/imageUploader"));
 
-var _headline = _interopRequireDefault(require("./components/headline"));
+var _content = _interopRequireDefault(require("./components/content"));
 
 require("./index.scss");
 
@@ -65534,7 +65533,7 @@ class App extends _react.default.Component {
     };
 
     this.render = () => {
-      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_headline.default, Object.assign({
+      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_content.default, Object.assign({
         title: "Content",
         onStateChange: this.handleStateChange
       }, this.state)), _react.default.createElement(_imageUploader.default, Object.assign({
@@ -65574,7 +65573,7 @@ App.propTypes = {
 if (module.hot) {
   module.hot.accept();
 }
-},{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","react-dom":"../node_modules/react-dom/index.js","contentful-ui-extensions-sdk":"../node_modules/contentful-ui-extensions-sdk/dist/cf-extension-api.js","immutability-helper":"../node_modules/immutability-helper/index.js","./components/imageUploader":"components/imageUploader/index.js","./components/headline":"components/headline/index.js","./index.scss":"index.scss"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","react-dom":"../node_modules/react-dom/index.js","contentful-ui-extensions-sdk":"../node_modules/contentful-ui-extensions-sdk/dist/cf-extension-api.js","immutability-helper":"../node_modules/immutability-helper/index.js","./components/imageUploader":"components/imageUploader/index.js","./components/content":"components/content/index.js","./index.scss":"index.scss"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -65602,7 +65601,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52347" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59108" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
